@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateShoes < ActiveRecord::Migration[6.0]
   def change
     create_table :shoes do |t|
@@ -6,7 +8,8 @@ class CreateShoes < ActiveRecord::Migration[6.0]
       t.string :color
       t.string :status
       t.string :size
-      t.string :brandname
+      t.string :category
+      t.string :image
 
       t.timestamps
     end

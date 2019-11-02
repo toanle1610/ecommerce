@@ -87,7 +87,8 @@ ActiveRecord::Schema.define(version: 2019_11_01_204755) do
     t.string "color"
     t.string "status"
     t.string "size"
-    t.string "brandname"
+    t.string "category"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
