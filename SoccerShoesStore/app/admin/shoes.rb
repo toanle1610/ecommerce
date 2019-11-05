@@ -28,4 +28,22 @@ ActiveAdmin.register Shoe do
     end
     f.actions
   end
+
+  index do
+      column :id
+      column :name
+      column :price
+      column :color
+      column :status
+      column :size
+      column :category
+      column "Image" do |shoe|
+        if shoe.image.attached?
+          image_tag shoe.image, size:"30x30"
+        else
+          'No Image'
+        end
+      end
+    actions
+  end
 end

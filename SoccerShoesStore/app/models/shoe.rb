@@ -2,5 +2,5 @@
 
 class Shoe < ApplicationRecord
   # attr_accessible :name, :price, :color, :status, :size, :category, :image
-  mount_uploader :image, ImageUploader
+  has_one_attached :image
 end
