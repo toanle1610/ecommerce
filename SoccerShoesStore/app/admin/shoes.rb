@@ -22,7 +22,6 @@ ActiveAdmin.register Shoe do
       f.input :price
       f.input :color
       f.input :status, as: :select, collection: ['On Sale', 'New', 'Recently Updated']
-      f.input :size
       f.input :category, as: :select, collection: ['Low Cut', 'Mid Cut', 'Indoor', 'Outdoor']
       f.input :image, as: :file
     end
@@ -30,20 +29,20 @@ ActiveAdmin.register Shoe do
   end
 
   index do
-      column :id
-      column :name
-      column :price
-      column :color
-      column :status
-      column :size
-      column :category
-      column "Image" do |shoe|
-        if shoe.image.attached?
-          image_tag shoe.image, size:"30x30"
-        else
-          'No Image'
-        end
+    column :id
+    column :name
+    column :price
+    column :color
+    column :status
+    column :size
+    column :category
+    column 'Image' do |shoe|
+      if shoe.image.attached?
+        image_tag shoe.image, size: '30x30'
+      else
+        'No Image'
       end
+    end
     actions
   end
 end

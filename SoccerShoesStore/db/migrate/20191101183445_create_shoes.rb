@@ -7,7 +7,6 @@ class CreateShoes < ActiveRecord::Migration[6.0]
       t.float :price
       t.string :color
       t.string :status
-      t.string :size
       t.string :category
       t.string :image
 
