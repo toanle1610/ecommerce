@@ -1,0 +1,6 @@
+<div class="vertical-menu">
+  <h2>Categories</h2>
+  <% @categories.each do |cat| %>
+    <%= active_link_to cat, "/product/show" %>
+  <% end %>
+</div>

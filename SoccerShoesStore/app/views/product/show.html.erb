@@ -1,0 +1,10 @@
+<h1>Products</h1>
+<%= render partial: "product" %>
+<div>
+  <h3> <%= @product.name %> </h3>
+  <%= image_tag @product.image, size: "300x400" %>
+  <%= @product.price %>
+  <div style="width:40px;height:20px;background-color:<%= @product.color %>;">
+    <span style="display: none;"><%= @product.color %></span>
+  </div>
+</div>
