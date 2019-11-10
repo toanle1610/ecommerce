@@ -6,7 +6,7 @@
       <%= image_tag product.image, size: "200x200" %>
       <p> <%= product.name%> </p>
       <%= link_to 'View Details', product_show_url(product.id), :class => "btn" %>
-      <%= button_to "Order", new_article_path %>
+      <%= button_to "Order", order_new_path %>
     </div>
   <%end%>
 </div>

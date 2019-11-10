@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'order/new'
+  post 'order/new'
   get '/product/index'
   get '/product/:id', to: 'product#show', as: '/product/show'
   devise_for :admin_users, ActiveAdmin::Devise.config
