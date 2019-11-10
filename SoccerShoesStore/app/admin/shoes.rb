@@ -15,7 +15,7 @@ ActiveAdmin.register Shoe do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  permit_params :name, :price, :color, :status, :size, :category, :image
+  permit_params :name, :price, :color, :status, :category, :image
   form(html: { multipart: true }) do |f|
     f.inputs 'Shoe' do
       f.input :name
@@ -34,7 +34,6 @@ ActiveAdmin.register Shoe do
     column :price
     column :color
     column :status
-    column :size
     column :category
     column 'Image' do |shoe|
       if shoe.image.attached?
