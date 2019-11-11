@@ -10,4 +10,9 @@ class ProductController < ApplicationController
     @categories = Shoe.distinct.pluck(:category)
     @product = Shoe.find(params[:id])
   end
+
+  def category
+    @categories = Shoe.distinct.pluck(:category)
+    @products = Shoe.where(category: params[:cat])
+  end
 end

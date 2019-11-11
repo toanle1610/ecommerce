@@ -3,7 +3,20 @@
 <div class="content">
   <h3><strong> <%= @product.name %> </strong></h3>
   <%= image_tag @product.image, size: "300x450" %>
-  <%= @product.price %>
-  <div style="width:40px;height:20px;background-color:<%= @product.color %>;">
-  </div>
+  <p>
+    <span> <strong> Price: </strong></span>
+    <em> $<%= @product.price %> </em>
+  </p>
+  <p>
+    <span> <strong> Color: </strong></span>
+    <span id="color" style="background-color:<%= @product.color %>;" ></span>
+  </p>
+  <p>
+    <span> <strong> Status: </strong></span>
+    <em> <%= @product.status %> </em>
+  </p>
+  <p>
+    <span> <strong> Category: </strong></span>
+    <em> <%= @product.category %> </em>
+  </p>
 </div>
