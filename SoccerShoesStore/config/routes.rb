@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   post 'order/new'
+  get '/product/search'
   get '/product/index'
   get '/product/:id', to: 'product#show', as: '/product/show'
   get '/product/category/:cat', to: 'product#category', as: '/product/category'

@@ -1,0 +1,21 @@
+<h1>Products</h1>
+<%= render partial: "product" %>
+<h2>Search Results</h2>
+<div>
+  <p>
+    <em>
+      Found <strong><%= @products.length %></strong> record(s)
+      <%if @searchcategory != 'None'%>
+        <span> in <strong><%= @searchcategory %></strong> </span>
+      <%end%>
+    </em>
+  </p>
+  <% @products.each do |product|%>
+    <div class="pattern">
+      <%= image_tag product.image, size: "200x200" %>
+      <p> <%= product.name%> </p>
+      <%= link_to 'View Details', product_show_url(product.id), :class => "btn" %>
+      <%= button_to "Order", order_new_path %>
+    </div>
+  <% end %>
+</div>

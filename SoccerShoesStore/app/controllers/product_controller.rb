@@ -15,4 +15,15 @@ class ProductController < ApplicationController
     @categories = Shoe.distinct.pluck(:category)
     @products = Shoe.where(category: params[:cat])
   end
+
+  def search
+    @categories = Shoe.distinct.pluck(:category)
+    @searchcategory = params[:category]
+    if @searchcategory == 'None'
+      @products = Shoe.where('name like ?', "%#{params[:q]}%")
+    else
+      @products = Shoe.where('name like ? And category = ?',
+                             "%#{params[:q]}%", @searchcategory.to_s)
+    end
+  end
 end
