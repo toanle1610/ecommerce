@@ -8,26 +8,37 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.esm.js'
+// import Vue from 'vue'
 import App from '../app.vue'
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-
 Vue.use(BootstrapVue);
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.insertBefore(document.createElement('app'), document.body.firstChild)
-  const app = new Vue({
-    el: 'app',
-    template: '<App/>',
-    render: h => h(App)
-  })
 
+var element = document.getElementsByClassName("vertical-menu");
+document.addEventListener('turbolinks:load', () => {
+  // document.body.insertBefore(document.createElement('app'), document.body.firstChild)
+  var productcategories = JSON.parse(document.getElementsByClassName("vertical-menu")[0].dataset.category);
+  productcategories.unshift('None');
+
+  new Vue({
+    el: "#app",
+    data: {
+      categories: productcategories,
+    }
+  })
+  // new Vue({
+  //   el: "#app",
+  //   data: {
+  //     categories: productcategories
+  //   },
+  //   template: App.document,
+  //   render: h => h(App, {
+  //     props: {
+  //       categories: productcategories
+  //     }
+  //   })
+  // });
   // console.log(app)
 })
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)

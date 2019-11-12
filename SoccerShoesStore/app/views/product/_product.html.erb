@@ -1,4 +1,4 @@
-<div class="vertical-menu">
+<div class="vertical-menu" data-category="<%= @categories.to_json %>">
   <h2>Categories</h2>
   <% @categories.each do |cat| %>
     <%= active_link_to cat, "/product/category/" + cat %>

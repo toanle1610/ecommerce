@@ -1,8 +1,9 @@
 <h1>Products</h1>
 <%= render partial: "product" %>
 <div>
+  <h2><%= params[:cat]%> </h2>
   <% @products.each do |product|%>
-    <div id="pattern">
+    <div class="pattern">
       <%= image_tag product.image, size: "200x200" %>
       <p> <%= product.name%> </p>
       <%= link_to 'View Details', product_show_url(product.id), :class => "btn" %>
