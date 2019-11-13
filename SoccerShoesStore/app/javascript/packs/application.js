@@ -18,8 +18,15 @@ Vue.use(BootstrapVue);
 
 var element = document.getElementsByClassName("vertical-menu");
 document.addEventListener('turbolinks:load', () => {
-  // document.body.insertBefore(document.createElement('app'), document.body.firstChild)
-  var productcategories = JSON.parse(document.getElementsByClassName("vertical-menu")[0].dataset.category);
+  var menuelement = document.getElementsByClassName("vertical-menu")[0];
+  var productcategories;
+  if (menuelement == null) {
+    productcategories = JSON.parse(document.getElementById("new_user").dataset.category);
+  } else {
+    productcategories = JSON.parse(menuelement.dataset.category);
+  }
+
+
   productcategories.unshift('None');
 
   new Vue({
@@ -28,17 +35,4 @@ document.addEventListener('turbolinks:load', () => {
       categories: productcategories,
     }
   })
-  // new Vue({
-  //   el: "#app",
-  //   data: {
-  //     categories: productcategories
-  //   },
-  //   template: App.document,
-  //   render: h => h(App, {
-  //     props: {
-  //       categories: productcategories
-  //     }
-  //   })
-  // });
-  // console.log(app)
 })

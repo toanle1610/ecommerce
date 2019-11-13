@@ -21,7 +21,13 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <%= active_link_to 'Products', "/product/index", wrap_tag: :li, wrap_class: 'nav-item', class: 'nav-link' %>
-            <%= active_link_to 'Sign Up', "/product/index", wrap_tag: :li, wrap_class: 'nav-item', class: 'nav-link' %>
+            <% if session[:current_cart] %>
+              <% @mycart = session[:current_cart].split(',') %>
+              <%= active_link_to 'Cart' + '(' + @mycart.length.to_s + ')', "/product/index", wrap_tag: :li, wrap_class: 'nav-item', class: 'nav-link' %>
+            <%else%>
+              <%= active_link_to 'Cart', "/product/index", wrap_tag: :li, wrap_class: 'nav-item', class: 'nav-link' %>
+            <%end%>
+            <%= active_link_to 'Sign Up/ Log-in', "/product/index", wrap_tag: :li, wrap_class: 'nav-item', class: 'nav-link' %>
           </ul>
           <form class="form-inline mt-2 mt-md-0" action="/product/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
             <input type="text" name="q" id="q" class="form-control mr-sm-2" placeholder="Search for Your Shoes" >

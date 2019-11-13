@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'user/login', to: 'user#login'
+  post 'user/do_login'
   post 'order/new'
+  post 'order/remove'
   get '/product/search'
   get '/product/index'
   get '/product/:id', to: 'product#show', as: '/product/show'
