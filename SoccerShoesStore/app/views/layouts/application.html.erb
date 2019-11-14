@@ -27,7 +27,7 @@
             <%else%>
               <%= active_link_to 'Cart', "/product/index", wrap_tag: :li, wrap_class: 'nav-item', class: 'nav-link' %>
             <%end%>
-            <%= active_link_to 'Sign Up/ Log-in', "/product/index", wrap_tag: :li, wrap_class: 'nav-item', class: 'nav-link' %>
+            <%= active_link_to 'Sign Up/ Log-in', "/user/login", wrap_tag: :li, wrap_class: 'nav-item', class: 'nav-link' %>
           </ul>
           <form class="form-inline mt-2 mt-md-0" action="/product/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
             <input type="text" name="q" id="q" class="form-control mr-sm-2" placeholder="Search for Your Shoes" >
