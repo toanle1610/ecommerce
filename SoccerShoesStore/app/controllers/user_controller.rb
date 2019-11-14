@@ -13,9 +13,18 @@ class UserController < ApplicationController
     key   = ActiveSupport::KeyGenerator.new(Rails.application.secrets.secret_key_base).generate_key salt, len
     crypt = ActiveSupport::MessageEncryptor.new key
     encrypted_data = crypt.encrypt_and_sign params[:password]
-    @password = "#{salt}$$#{encrypted_data}"
+    @password = encrypted_data.to_s
     @username = params[:email]
-    User.create(username: @username, password: @password)
+    if params[:commit] == 'Sign Up'
+      user = User.where(username: @username).first
+
+      if user.nil?
+        User.create(username: @username, password: @password)
+      else
+        flash[:fail] = 'User Name has already existed'
+        return redirect_to user_login_path
+      end
+    end
     redirect_to product_index_path
   end
 end
