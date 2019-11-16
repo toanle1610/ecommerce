@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+#loginName {
+  color: green;
+  font-size: large;
+}

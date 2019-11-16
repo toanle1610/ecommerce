@@ -15,6 +15,7 @@ class OrderController < ApplicationController
       @remove = session[:current_cart].split(',')
       @remove.delete(params[:shoeid])
       session[:current_cart] = @remove.join(',')
+      session[:current_cart] = nil if @remove.empty?
     end
     redirect_to request.referer
   end

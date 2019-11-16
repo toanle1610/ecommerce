@@ -39,6 +39,9 @@
         </div>
       </nav>
     </div>
+    <% if session[:userid] %>
+    <p id="loginName"> <em> Hello, tle@test.com ! </em></p>
+    <%end%>
     <%= yield %>
   </body>
 </html>
