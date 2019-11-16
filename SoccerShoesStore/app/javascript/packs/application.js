@@ -21,11 +21,11 @@ document.addEventListener('turbolinks:load', () => {
   var menuelement = document.getElementsByClassName("vertical-menu")[0];
   var productcategories;
   if (menuelement == null) {
-    productcategories = JSON.parse(document.getElementById("new_user").dataset.category);
-  } else {
-    productcategories = JSON.parse(menuelement.dataset.category);
+    menuelement = document.getElementById("new_user");
+    if (menuelement == null)
+      menuelement = document.getElementById("new_order");
   }
-
+  productcategories = JSON.parse(menuelement.dataset.category);
 
   productcategories.unshift('None');
 

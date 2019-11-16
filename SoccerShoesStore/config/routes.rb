@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   get 'user/login', to: 'user#login'
   post 'user/do_login', to: 'user#do_login'
+  get 'order/create'
   post 'order/new'
   post 'order/remove'
   get '/product/search'

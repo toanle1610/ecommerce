@@ -19,4 +19,8 @@ class OrderController < ApplicationController
     end
     redirect_to request.referer
   end
+
+  def create
+    @categories = Shoe.distinct.pluck(:category)
+  end
 end
