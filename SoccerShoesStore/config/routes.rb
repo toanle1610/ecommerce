@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post 'user/do_login', to: 'user#do_login'
   get 'order/create'
   post 'order/new'
-  post 'order/remove'
+  post 'order/remove', to: 'order#remove'
   get '/product/search'
   get '/product/index'
   get '/product/:id', to: 'product#show', as: '/product/show'

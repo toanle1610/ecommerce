@@ -2,8 +2,12 @@
 
 class OrderController < ApplicationController
   def new
-    session[:current_cart] = if session[:current_cart]
-                               session[:current_cart] + ',' + params[:shoeid]
+    cookies[:current_cart] = if cookies[:current_cart]
+                               if !cookies[:current_cart].split(',').include?(params[:shoeid])
+                                 cookies[:current_cart] + ',' + params[:shoeid]
+                               else
+                                 cookies[:current_cart]
+                               end
                              else
                                params[:shoeid]
                              end
@@ -11,16 +15,17 @@ class OrderController < ApplicationController
   end
 
   def remove
-    if session[:current_cart]
-      @remove = session[:current_cart].split(',')
+    if cookies[:current_cart]
+      @remove = cookies[:current_cart].split(',')
       @remove.delete(params[:shoeid])
-      session[:current_cart] = @remove.join(',')
-      session[:current_cart] = nil if @remove.empty?
+      cookies[:current_cart] = @remove.join(',')
+      cookies[:current_cart] = nil if @remove.empty?
     end
     redirect_to request.referer
   end
 
   def create
     @categories = Shoe.distinct.pluck(:category)
+    @itemids = cookies[:current_cart].split(',') if cookies[:current_cart]
   end
 end

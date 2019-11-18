@@ -21,8 +21,8 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <%= active_link_to 'Products', "/product/index", wrap_tag: :li, wrap_class: 'nav-item', class: 'nav-link' %>
-            <% if session[:current_cart] %>
-              <% @mycart = session[:current_cart].split(',') %>
+            <% if cookies[:current_cart] %>
+              <% @mycart = cookies[:current_cart].split(',') %>
               <%= active_link_to 'Cart' + '(' + @mycart.length.to_s + ')', "/order/create", wrap_tag: :li, wrap_class: 'nav-item', class: 'nav-link' %>
             <%else%>
               <%= active_link_to 'Cart', "/order/create", wrap_tag: :li, wrap_class: 'nav-item', class: 'nav-link' %>
@@ -39,8 +39,8 @@
         </div>
       </nav>
     </div>
-    <% if session[:userid] %>
-      <p id="loginName"> <em> Hello, <%= User.find(session[:userid]).username %> ! </em></p>
+    <% if cookies[:userid] %>
+      <p id="loginName"> <em> Hello, <%= User.find(cookies[:userid]).username %> ! </em></p>
     <%end%>
     <%= yield %>
   </body>
