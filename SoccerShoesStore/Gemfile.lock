@@ -88,9 +88,6 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
-    bootstrap_form (4.3.0)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
     builder (3.2.3)
     byebug (11.0.1)
     cancancan (3.0.1)
@@ -320,7 +317,7 @@ GEM
       railties (>= 4.2)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.4)
+    websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.2.1)
@@ -332,7 +329,6 @@ DEPENDENCIES
   active_link_to
   activeadmin
   bootsnap (>= 1.4.2)
-  bootstrap_form
   byebug
   cancancan
   capybara (>= 2.15)
